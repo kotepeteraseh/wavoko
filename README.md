@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Wavoko website (Next.js + Supabase)
 
 ## 1. Create the project (VS Code terminal)
@@ -42,3 +43,6 @@ Not yet included: payments, real Talent and Finance tools.
 
 ## Brand (locked)
 Colors: Cream #F2EDE6 (page), Ink #1A1410, Charcoal #3D3832, Signal #12B76A, Sprout #D1FAE5, Sand #E8E2DA. Fonts: Fraunces (headings) and Inter (body), loaded automatically through next/font, nothing to install. Tokens live in `src/app/globals.css`. Use Signal sparingly, never as a large background.
+=======
+# wavoko
+>>>>>>> 1bc401157c44ac6c5fa10b030063ac6446aa2d9d
