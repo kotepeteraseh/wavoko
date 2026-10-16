@@ -96,6 +96,12 @@ const clientStories = [
   },
 ];
 
+const heroMotivations = [
+  "Every big journey begins with one brave step.",
+  "Your next opportunity is worth pursuing.",
+  "Keep moving forward. Your future is unfolding.",
+];
+
 // Bézier control points describing the route followed by the hero particles.
 const heroCurves: [Point, Point, Point, Point][] = [
   [[710, -35], [590, 80], [500, 130], [360, 220]],
@@ -149,21 +155,21 @@ const heroParticles = Array.from({ length: 720 }, (_, index) => {
 
 // Service tiles shown inside the homepage dashboard preview.
 const dashboardServices = [
-  { Icon: Users, title: "Talent acquisition", detail: "12 matches ready", href: "/talent", featured: true },
-  { Icon: FileText, title: "WECOAPPLY", detail: "8 roles open", href: "/wecoapply", featured: false },
-  { Icon: ArrowLeftRight, title: "Global finance", detail: "Global support", href: "/finance", featured: false },
+  { Icon: Users, title: "Wavoko Talent", detail: "12 matches ready", href: "/talent", featured: true },
+  { Icon: FileText, title: "Wavoko Solutions", detail: "Career and workspace solutions", href: "/wecoapply", featured: false },
+  { Icon: ArrowLeftRight, title: "Wavoko Finance", detail: "Global support", href: "/finance", featured: false },
 ];
 
 // Copy and links for each tab in the homepage service showcase.
 const platformServices = [
   {
     Icon: Users,
-    name: "Talent acquisition",
+    name: "Wavoko Talent",
     audience: "For growing companies",
     headline: "Build the team your ambition deserves",
     description: "From hard-to-find specialists to transformative leaders, we connect your business with people who can move it forward.",
     href: "/talent",
-    cta: "Explore Talent acquisition",
+    cta: "Explore Wavoko Talent",
     metric: "3",
     metricLabel: "SPECIALIST SERVICES. ONE PLATFORM.",
     benefits: [
@@ -174,23 +180,23 @@ const platformServices = [
   },
   {
     Icon: FileText,
-    name: "WECOAPPLY",
+    name: "Wavoko Solutions",
     audience: "For ambitious professionals",
     headline: "Make your next move with confidence",
-    description: "Get practical support with tailored resumes, job applications, and the steps between finding a role and getting hired.",
+    description: "Explore career guidance through WECOAPPLY and WeWork office spaces available to rent.",
     href: "/wecoapply",
-    cta: "Explore WECOAPPLY",
+    cta: "Explore Wavoko Solutions",
     metric: "3",
     metricLabel: "SPECIALIST SERVICES. ONE PLATFORM.",
     benefits: [
-      ["Applications tailored to you", "Present your experience clearly for each opportunity."],
-      ["A more focused search", "Find roles that fit your goals and preferences."],
-      ["Support at every step", "Get guidance from applications through interviews."],
+      ["WECOAPPLY career guidance", "Explore support for applications, job searches, and interviews."],
+      ["WeWork office spaces", "Find out about office spaces available to rent."],
+      ["Solutions for work", "Ask us about the option that fits your needs."],
     ],
   },
   {
     Icon: ArrowLeftRight,
-    name: "Global finance",
+    name: "Wavoko Finance",
     audience: "For people and families",
     headline: "Move money forward with confidence",
     description: "Explore cross-border transfers and savings support through Wavoko’s licensed financial partner.",
@@ -218,13 +224,13 @@ const helpTopics = [
     question: "I’m looking for a job",
     answer: "WECOAPPLY can help tailor your applications and keep your search moving.",
     href: "/wecoapply",
-    link: "Explore WECOAPPLY",
+    link: "Explore Wavoko Solutions",
   },
   {
     question: "I need to hire someone",
     answer: "Our talent team can help you define the role and find the right people.",
     href: "/talent",
-    link: "Explore talent acquisition",
+    link: "Explore Wavoko Talent",
   },
   {
     question: "I have a finance question",
@@ -351,9 +357,9 @@ function HomeDashboard({ scale }: { scale: number }) {
           </div>
           <div className="home-dashboard-content">
             <aside className="home-dashboard-sidebar" aria-label={t("Dashboard navigation")}>
-              <span className="is-active" aria-label={t("Talent acquisition")}><Users size={17} /></span>
-              <span aria-label={t("WECOAPPLY")}><FileText size={17} /></span>
-              <span aria-label={t("Global finance")}><ArrowLeftRight size={17} /></span>
+              <span className="is-active" aria-label={t("Wavoko Talent")}><Users size={17} /></span>
+              <span aria-label={t("Wavoko Solutions")}><FileText size={17} /></span>
+              <span aria-label={t("Wavoko Finance")}><ArrowLeftRight size={17} /></span>
             </aside>
             <div className="home-dashboard-main">
               <p className="home-dashboard-greeting">{t("Your next step")}</p>
@@ -759,6 +765,21 @@ export default function Home() {
               <Link href="/services" className="btn btn-ghost">{t("Explore our services")} <ArrowRight size={16} /></Link>
             </div>
           </div>
+        </div>
+        <div className="home-hero-quote-orbit" role="group" aria-label={t("Motivational reminders")}>
+          <span className="home-hero-quote-ring home-hero-quote-ring-outer" aria-hidden="true" />
+          <span className="home-hero-quote-ring home-hero-quote-ring-inner" aria-hidden="true" />
+          <div className="home-hero-quote-track">
+            {heroMotivations.map((quote, index) => (
+              <div className="home-hero-quote-position" key={quote}>
+                <p className={`home-hero-quote-card home-hero-quote-card-${index + 1}`}>
+                  <span>0{index + 1} / {t("A little reminder")}</span>
+                  {t(quote)}
+                </p>
+              </div>
+            ))}
+          </div>
+          <span className="home-hero-quote-center" aria-hidden="true"><Sparkles size={28} /></span>
         </div>
       </section>
 

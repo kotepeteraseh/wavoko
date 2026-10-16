@@ -15,8 +15,8 @@ const links = [
 
 const serviceLinks = [
   ["/services", "All services"],
-  ["/wecoapply", "WECOAPPLY"],
-  ["/talent", "Talent Acquisition"],
+  ["/wecoapply", "Wavoko Solutions"],
+  ["/talent", "Wavoko Talent"],
   ["/finance", "Wavoko Finance"],
 ];
 
@@ -66,9 +66,22 @@ export default function Header() {
   return (
     <header className={`site-header${isScrolled ? " is-scrolled" : ""}`}>
       <div className="announcement-bar">
-        <span className="announcement-pill">{t("NEW")}</span>
-        <span>{t("Wavoko brings talent, career opportunity, and global finance together.")}</span>
-        <Link href="/about" className="announcement-link">{t("Discover Wavoko")} <span aria-hidden="true">→</span></Link>
+        <div className="announcement-message">
+          <span className="announcement-pill">{t("NEW")}</span>
+          <span>{t("Wavoko brings talent, career opportunity, and global finance together.")}</span>
+          <Link href="/about" className="announcement-link">{t("Discover Wavoko")} <span aria-hidden="true">→</span></Link>
+        </div>
+        <label className="announcement-language">
+          <span>{t("Language")}</span>
+          <select
+            value={language}
+            onChange={(event) => setLanguage(event.target.value === "fr" ? "fr" : "en")}
+            aria-label={t("Language")}
+          >
+            <option value="en">{t("English")}</option>
+            <option value="fr">{t("French")}</option>
+          </select>
+        </label>
       </div>
       <div className="site-nav-row">
         <Logo />
@@ -112,16 +125,9 @@ export default function Header() {
         </nav>
         <div className={`site-nav-actions${isMenuOpen ? " is-open" : ""}`}>
           <Link href="/contact">{t("Contact")}</Link>
-          <button
-            type="button"
-            className="language-toggle"
-            onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-            aria-label={language === "en" ? "Passer le site en français" : "Switch the website to English"}
-            aria-pressed={language === "fr"}
-          >
-            {language === "en" ? "FR" : "EN"}
-          </button>
-          <Link href="/wecoapply" className="btn btn-ink">{t("Get started")} <span aria-hidden="true">→</span></Link>
+          <Link href={path === "/" ? "/wecoapply" : "/services"} className="btn btn-ink">
+            {path === "/" ? t("Get started") : t("Explore services")} <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </header>

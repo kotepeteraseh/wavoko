@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 // Footer navigation grouped by service and company destination.
 const cols: [string, [string, string][]][] = [
-  ["Services", [["/talent", "Talent acquisition"], ["/wecoapply", "WECOAPPLY"], ["/finance", "Global finance"]]],
+  ["Services", [["/talent", "Wavoko Talent"], ["/wecoapply", "Wavoko Solutions"], ["/finance", "Wavoko Finance"]]],
   ["Company", [["/about", "About Wavoko"], ["/success-stories", "Stories"], ["/contact", "Contact"]]],
 ];
 
