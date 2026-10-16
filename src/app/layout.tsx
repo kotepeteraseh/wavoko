@@ -4,6 +4,7 @@ import { Fraunces, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import WavokoAssist from "@/components/WavokoAssist";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 // Load the site's shared fonts as CSS variables for use throughout the app.
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <ScrollReveal />
           <Footer />
+          <WavokoAssist />
         </LanguageProvider>
       </body>
     </html>

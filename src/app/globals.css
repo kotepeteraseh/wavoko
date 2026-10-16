@@ -74,6 +74,29 @@ h3 { font-weight: 500; }
 .site-footer { background: #F2EDE6; color: #3D3832; border-color: #E8E2DA; }
 .site-footer > div:first-child { padding-inline: var(--page-gutter); }
 .site-footer > div:last-child { border-color: #E8E2DA; padding-inline: var(--page-gutter); }
+.wavoko-assist { position: fixed; z-index: 80; right: max(1.25rem, env(safe-area-inset-right)); bottom: max(1.25rem, env(safe-area-inset-bottom)); }
+.wavoko-assist-toggle { display: inline-flex; min-height: 3.25rem; align-items: center; justify-content: center; gap: .6rem; padding: .8rem 1.1rem; border: 0; border-radius: 999px; background: #087A50; box-shadow: 0 .55rem 1.5rem rgb(26 20 16 / 22%); color: #fff; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease; }
+.wavoko-assist-toggle:hover { transform: translateY(-2px); background: #065F46; box-shadow: 0 .75rem 1.8rem rgb(26 20 16 / 25%); }
+.wavoko-assist-toggle:focus-visible, .wavoko-assist-close:focus-visible, .wavoko-assist-form button:focus-visible { outline: 3px solid rgb(18 183 106 / 55%); outline-offset: 3px; }
+.wavoko-assist-panel { position: absolute; right: 0; bottom: calc(100% + .8rem); display: flex; width: min(24rem, calc(100vw - 2.5rem)); max-height: min(38rem, calc(100dvh - 7rem)); flex-direction: column; overflow: hidden; border: 1px solid #E8E2DA; border-radius: 1rem; background: #fff; box-shadow: 0 1rem 3rem rgb(26 20 16 / 20%); }
+.wavoko-assist-panel[hidden] { display: none; }
+.wavoko-assist-header { display: flex; flex: 0 0 auto; align-items: center; gap: .75rem; padding: 1rem; border-bottom: 1px solid #E8E2DA; background: #F8F6F2; }
+.wavoko-assist-avatar { display: grid; width: 2.6rem; height: 2.6rem; flex: 0 0 auto; place-items: center; border-radius: .8rem; background: #D1FAE5; color: #087A50; }
+.wavoko-assist-header h2 { color: #1A1410; font-family: var(--font-inter), system-ui, sans-serif; font-size: .92rem; font-weight: 700; letter-spacing: 0; }
+.wavoko-assist-header p { margin-top: .12rem; color: #6D6863; font-size: .67rem; line-height: 1.35; }
+.wavoko-assist-close { display: grid; width: 2.25rem; height: 2.25rem; flex: 0 0 auto; place-items: center; margin-left: auto; border: 0; border-radius: .6rem; background: transparent; color: #3D3832; cursor: pointer; }
+.wavoko-assist-close:hover { background: #E8E2DA; }
+.wavoko-assist-messages { display: flex; min-height: 8rem; flex: 1 1 auto; flex-direction: column; gap: .7rem; overflow-y: auto; overscroll-behavior: contain; padding: 1rem; }
+.wavoko-assist-message { max-width: 88%; padding: .7rem .8rem; border-radius: .8rem .8rem .8rem .2rem; background: #F2EDE6; color: #3D3832; font-size: .78rem; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+.wavoko-assist-message.is-user { align-self: flex-end; border-radius: .8rem .8rem .2rem .8rem; background: #D1FAE5; color: #1A1410; }
+.wavoko-assist-error { align-self: stretch; padding: .65rem .75rem; border: 1px solid #F3B7B7; border-radius: .6rem; background: #FFF2F2; color: #8A2424; font-size: .72rem; line-height: 1.5; }
+.wavoko-assist-form { display: flex; flex: 0 0 auto; align-items: center; gap: .5rem; padding: .75rem; border-top: 1px solid #E8E2DA; }
+.wavoko-assist-form input { width: 100%; min-width: 0; min-height: 2.75rem; padding: .65rem .75rem; border: 1px solid #D8D2C9; border-radius: .65rem; outline: none; background: #fff; color: #1A1410; font: inherit; font-size: .78rem; }
+.wavoko-assist-form input:focus { border-color: #12B76A; box-shadow: 0 0 0 3px rgb(18 183 106 / 14%); }
+.wavoko-assist-form button { display: grid; width: 2.75rem; height: 2.75rem; flex: 0 0 auto; place-items: center; border: 0; border-radius: .65rem; background: #087A50; color: #fff; cursor: pointer; }
+.wavoko-assist-form button:hover:not(:disabled) { background: #065F46; }
+.wavoko-assist-form button:disabled { background: #C8D8CF; color: #68756D; cursor: not-allowed; }
+.wavoko-assist-disclaimer { flex: 0 0 auto; padding: 0 .9rem .7rem; color: #77716B; font-size: .6rem; line-height: 1.4; text-align: center; }
 /* Shared page title block and the homepage's opening hero. */
 .page-intro { position: relative; isolation: isolate; overflow: hidden; color: #3D3832; background: radial-gradient(ellipse at 82% 0%, rgb(209 250 229 / 86%), transparent 42%), #F2EDE6; border-bottom: 1px solid #E8E2DA; }
 .page-intro::after { position: absolute; z-index: -1; top: -11rem; right: -5rem; width: min(35vw, 27rem); aspect-ratio: 1; border: 1px solid rgb(8 122 80 / 9%); border-radius: 50%; box-shadow: 0 0 0 2.4rem rgb(8 122 80 / 2%), 0 0 0 5rem rgb(8 122 80 / 2%); content: ""; pointer-events: none; }
@@ -669,6 +692,13 @@ h3 { font-weight: 500; }
 @media (max-width: 380px) {
   .contact-page-inner { gap: 1.5rem; padding-top: 2rem; }
   .contact-form-card { padding: 1.25rem; }
+  .wavoko-assist { right: max(.65rem, env(safe-area-inset-right)); bottom: max(.65rem, env(safe-area-inset-bottom)); }
+  .wavoko-assist-panel { right: -.15rem; width: min(22rem, calc(100vw - 1.3rem)); max-height: calc(100dvh - 5.5rem); }
+  .wavoko-assist-toggle { min-height: 3rem; padding-inline: .9rem; font-size: .76rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wavoko-assist-toggle { transition: none; }
 }
 
 /* Shared editorial layout for the site's information-focused service pages. */

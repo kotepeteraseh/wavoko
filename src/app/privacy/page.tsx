@@ -7,6 +7,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 // Each entry becomes one titled privacy topic in the page body.
 const sections = [
   ["What we collect", "If you contact Wavoko, we receive the contact details and message that you choose to include."],
+  ["AI chat", "If you use Wavoko Assist, your messages are sent to OpenAI to generate replies. The website does not save the chat to a user account. Do not include sensitive personal or financial information."],
   ["How we use it", "We use the details you send to understand and respond to your enquiry."],
   ["Who can see it", "Your message may be handled by the people and providers needed to receive and respond to enquiries."],
   ["Your choices", "You can contact Wavoko to ask about a message or request that your contact information be corrected or removed."],
